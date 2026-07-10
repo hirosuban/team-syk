@@ -2,7 +2,9 @@ PREDEF:
   - preface.re
 
 CHAPS:
-  - article.re
+  - article_kai.re
+  - article_shimoji.re
+  - article_yamane.re
 
 APPENDIX:
 
