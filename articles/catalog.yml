@@ -4,11 +4,11 @@ PREDEF:
 
 # 本題の章。ここを分厚くしていく。1章,2章...とかは勝手に番号が振られます
 CHAPS:
-  - article_1.re
-  - article_2.re
-  - article_3.re
-  - article_4.re
-  - article_5.re
+  - intro.re
+  - overview.re
+  - household_id.re
+  - id_reassignment.re
+  - data_cleaning.re
 
 APPENDIX:
 
