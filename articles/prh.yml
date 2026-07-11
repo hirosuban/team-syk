@@ -6,3 +6,8 @@ version: 1
 imports:
   # 気合で移行した気持ちになった
   - ../prh-rules/media/techbooster.yml
+
+rules:
+  # 本書の呼称は「被保険者証番号」に統一（「証」を落とさない）
+  - expected: 被保険者証番号
+    pattern: 被保険者番号
