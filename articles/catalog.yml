@@ -1,6 +1,8 @@
+# 目次みたいなファイル。
 PREDEF:
   - preface.re
 
+# 本題の章。ここを分厚くしていく。1章,2章...とかは勝手に番号が振られます
 CHAPS:
   - article_kai.re
   - article_shimoji.re
