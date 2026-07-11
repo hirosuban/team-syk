@@ -1,12 +1,14 @@
-# 目次みたいなファイル。
+# 目次みたいなファイル。前付け（番号なし）。序章はここに置く。
 PREDEF:
   - preface.re
 
 # 本題の章。ここを分厚くしていく。1章,2章...とかは勝手に番号が振られます
 CHAPS:
-  - article_kai.re
-  - article_shimoji.re
-  - article_yamane.re
+  - article_1.re
+  - article_2.re
+  - article_3.re
+  - article_4.re
+  - article_5.re
 
 APPENDIX:
 

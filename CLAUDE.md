@@ -28,3 +28,10 @@
 
 ## ファイル構成
 - リポジトリの原稿・検討ドキュメントの構成は [ARCHITECTURE.md](ARCHITECTURE.md) を参照。
+
+
+## 記法
+Re:VIEWの文法について詳しくは、Re:VIEW フォーマットガイドを参照してください。
+
+ * Re:VIEW フォーマットガイド
+ ** @<href>{https://github.com/kmuto/review/blob/master/doc/format.ja.md}
