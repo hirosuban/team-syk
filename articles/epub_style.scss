@@ -271,3 +271,77 @@ em {
 .width-080per { width:  80%; }
 .width-090per { width:  90%; }
 .width-100per { width: 100%; }
+
+/* ---------------------------------------------------------------
+   会話劇（キャラ画像つき吹き出し） review-ext.rb の //talk 用
+   --------------------------------------------------------------- */
+div.talk {
+  display: flex;
+  align-items: flex-start;
+  margin: 1em 0;
+}
+div.talk-right {
+  flex-direction: row-reverse;
+}
+div.talk .talk-icon {
+  flex: 0 0 4em;
+  width: 4em;
+  text-align: center;
+}
+div.talk .talk-icon img {
+  width: 4em;
+  height: auto;
+  border-radius: 50%;
+}
+div.talk .talk-name {
+  display: block;
+  font-size: 0.7em;
+  line-height: 1.2;
+}
+div.talk .talk-bubble {
+  position: relative;
+  flex: 1;
+  margin: 0 0.9em;
+  padding: 0.5em 0.8em;
+  border: 1px solid #888;
+  border-radius: 8px;
+  background: #fff;
+}
+div.talk .talk-bubble p {
+  margin: 0;
+  text-indent: 0;
+}
+div.talk-left .talk-bubble::before,
+div.talk-left .talk-bubble::after {
+  content: "";
+  position: absolute;
+  top: 0.9em;
+  border-style: solid;
+}
+div.talk-left .talk-bubble::before {
+  left: -9px;
+  border-width: 6px 9px 6px 0;
+  border-color: transparent #888 transparent transparent;
+}
+div.talk-left .talk-bubble::after {
+  left: -7px;
+  border-width: 6px 9px 6px 0;
+  border-color: transparent #fff transparent transparent;
+}
+div.talk-right .talk-bubble::before,
+div.talk-right .talk-bubble::after {
+  content: "";
+  position: absolute;
+  top: 0.9em;
+  border-style: solid;
+}
+div.talk-right .talk-bubble::before {
+  right: -9px;
+  border-width: 6px 0 6px 9px;
+  border-color: transparent transparent transparent #888;
+}
+div.talk-right .talk-bubble::after {
+  right: -7px;
+  border-width: 6px 0 6px 9px;
+  border-color: transparent transparent transparent #fff;
+}

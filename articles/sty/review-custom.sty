@@ -1,1 +1,90 @@
 % for user-defined macro
+
+% ---------------------------------------------------------------
+% 会話劇（キャラ画像つき吹き出し）
+% review-ext.rb の //talk ブロックから呼ばれる
+% ---------------------------------------------------------------
+\RequirePackage{tikz}
+\usetikzlibrary{calc}
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins}
+
+% アイコンの幅と、アイコン・吹き出し間の余白
+\newlength{\reviewtalkiconwidth}
+\setlength{\reviewtalkiconwidth}{14mm}
+\newlength{\reviewtalkgap}
+\setlength{\reviewtalkgap}{4mm}
+
+% 吹き出し本体（左向きしっぽ: アイコンが左にいるとき用）
+\newtcolorbox{reviewtalkbubbleleft}{%
+  enhanced,
+  colback=white,colframe=black!55,
+  boxrule=0.5pt,arc=2.5mm,
+  left=2mm,right=2mm,top=1.8mm,bottom=1.8mm,
+  before skip=0pt,after skip=0pt,
+  overlay={%
+    \path[fill=white]
+      ($(frame.north west)+(0.3pt,-4mm)$)
+      -- ($(frame.north west)+(-2.6mm,-5.8mm)$)
+      -- ($(frame.north west)+(0.3pt,-7.6mm)$) -- cycle;
+    \draw[black!55,line width=0.5pt]
+      ($(frame.north west)+(0.3pt,-4mm)$)
+      -- ($(frame.north west)+(-2.6mm,-5.8mm)$)
+      -- ($(frame.north west)+(0.3pt,-7.6mm)$);
+  }%
+}
+
+% 吹き出し本体（右向きしっぽ: アイコンが右にいるとき用）
+\newtcolorbox{reviewtalkbubbleright}{%
+  enhanced,
+  colback=white,colframe=black!55,
+  boxrule=0.5pt,arc=2.5mm,
+  left=2mm,right=2mm,top=1.8mm,bottom=1.8mm,
+  before skip=0pt,after skip=0pt,
+  overlay={%
+    \path[fill=white]
+      ($(frame.north east)+(-0.3pt,-4mm)$)
+      -- ($(frame.north east)+(2.6mm,-5.8mm)$)
+      -- ($(frame.north east)+(-0.3pt,-7.6mm)$) -- cycle;
+    \draw[black!55,line width=0.5pt]
+      ($(frame.north east)+(-0.3pt,-4mm)$)
+      -- ($(frame.north east)+(2.6mm,-5.8mm)$)
+      -- ($(frame.north east)+(-0.3pt,-7.6mm)$);
+  }%
+}
+
+% アイコン+話者名（#1: 画像パス #2: 話者名）
+\newcommand{\reviewtalkicon}[2]{%
+  \begin{minipage}[t]{\reviewtalkiconwidth}
+    \vspace{0pt}%
+    \centering
+    \includegraphics[width=\reviewtalkiconwidth]{#1}\par
+    {\scriptsize #2\par}%
+  \end{minipage}}
+
+% #1: 画像パス #2: 話者名 #3: 本文
+\newcommand{\reviewtalkleft}[3]{%
+  \par\medskip\noindent
+  \reviewtalkicon{#1}{#2}%
+  \hspace{\reviewtalkgap}%
+  \begin{minipage}[t]{\dimexpr\linewidth-\reviewtalkiconwidth-\reviewtalkgap\relax}
+    \vspace{0pt}%
+    \begin{reviewtalkbubbleleft}
+    #3
+    \end{reviewtalkbubbleleft}%
+  \end{minipage}%
+  \par\medskip
+}
+
+\newcommand{\reviewtalkright}[3]{%
+  \par\medskip\noindent
+  \begin{minipage}[t]{\dimexpr\linewidth-\reviewtalkiconwidth-\reviewtalkgap\relax}
+    \vspace{0pt}%
+    \begin{reviewtalkbubbleright}
+    #3
+    \end{reviewtalkbubbleright}%
+  \end{minipage}%
+  \hspace{\reviewtalkgap}%
+  \reviewtalkicon{#1}{#2}%
+  \par\medskip
+}
