@@ -22,7 +22,7 @@ bookname: syk-publish
 language: ja
 
 # 書名
-booktitle: {name: "{タイトル未定!!}", file-as: "reviewテンプレート"}
+booktitle: {name: "「これ、3日でできますよね？」と言われたので、データクレンジングの現実をお話しします。", file-as: "「これ、3日でできますよね？」と言われたので、データクレンジングの現実をお話しします。"}
 
 # 著者名。「, 」で区切って複数指定できる
 aut: [{name: "SYK出版", file-as: "syk出版"}]
